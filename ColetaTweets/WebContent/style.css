@@ -1,0 +1,84 @@
+h3 {
+    font-size: 20px;
+}
+
+h2 {
+    color: #55acee;
+}
+
+.labels {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.component {
+    padding-top: 10px;
+}
+
+.navbar{
+    background-color: #1d8be0;
+    height: 40px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    position: fixed;
+}
+
+.navbarsec {
+	background-color: #55acee;
+    height: 32px;
+    left: 0px;
+    right: 0px;
+    top: 40px;
+    width: 100%;
+    position: fixed;
+}
+
+.textnavbar {
+    margin-left: 15px;
+    margin-top: 5px;
+    color: #ffffff;
+}
+
+.btn {
+    background: #55acee;
+    border-color: #55acee;  
+    color: #ffffff;
+    width: 250px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btnmenu {
+    background: #55acee;
+    border-color: #55acee;  
+    color: #ffffff;
+    width: 250px;
+    font-size: 16px;
+    border-radius: 0px;
+    font-weight: 600;
+}
+
+form {
+    margin-top: 70px;
+}
+
+textarea {
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+select {
+    padding: 5px 15px 5px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+input {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 100px;
+}
