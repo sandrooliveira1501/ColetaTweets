@@ -1,5 +1,6 @@
 package br.ufc.cpbr8.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
@@ -15,7 +16,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tweets")
-public class Tweet {
+public class Tweet implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	private long id;
@@ -121,12 +124,33 @@ public class Tweet {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public Busca getBusca() {
+		return busca;
+	}
+
+	public void setBusca(Busca busca) {
+		this.busca = busca;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((busca == null) ? 0 : busca.hashCode());
+		result = prime * result + ((data == null) ? 0 : data.hashCode());
+		result = prime * result
+				+ ((hashTags == null) ? 0 : hashTags.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
+		long temp;
+		temp = Double.doubleToLongBits(latitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(longitude);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result
+				+ ((mencionados == null) ? 0 : mencionados.hashCode());
+		result = prime * result + ((texto == null) ? 0 : texto.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
 
@@ -139,10 +163,45 @@ public class Tweet {
 		if (getClass() != obj.getClass())
 			return false;
 		Tweet other = (Tweet) obj;
+		if (busca == null) {
+			if (other.busca != null)
+				return false;
+		} else if (!busca.equals(other.busca))
+			return false;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		if (hashTags == null) {
+			if (other.hashTags != null)
+				return false;
+		} else if (!hashTags.equals(other.hashTags))
+			return false;
 		if (id != other.id)
+			return false;
+		if (Double.doubleToLongBits(latitude) != Double
+				.doubleToLongBits(other.latitude))
+			return false;
+		if (Double.doubleToLongBits(longitude) != Double
+				.doubleToLongBits(other.longitude))
+			return false;
+		if (mencionados == null) {
+			if (other.mencionados != null)
+				return false;
+		} else if (!mencionados.equals(other.mencionados))
+			return false;
+		if (texto == null) {
+			if (other.texto != null)
+				return false;
+		} else if (!texto.equals(other.texto))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
 	}
-
 	
 }

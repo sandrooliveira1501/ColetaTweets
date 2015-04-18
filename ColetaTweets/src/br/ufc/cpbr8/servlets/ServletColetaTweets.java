@@ -93,8 +93,9 @@ public class ServletColetaTweets extends HttpServlet {
 		String tempoBusca = request.getParameter("tempo_busca");
 		String dataBusca = request.getParameter("data_busca");
 
+		Date dataCriacao = new Date();
+		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		Date dataCriacao;
 		try {
 			dataCriacao = dateFormat.parse(dataBusca.trim() + " " + tempoBusca.trim());
 		} catch (ParseException e) {
@@ -103,11 +104,16 @@ public class ServletColetaTweets extends HttpServlet {
 		
 		String dataString = dateFormat.format(dataCriacao);
 		
-		
 		busca.setDataCriacao(dataCriacao);
 		busca.setTempoBusca(tempo);
 		busca.setQuantidade(quantidade);
 		busca.setNumBuscas(repeticoes);
+		
+		//BuscaDAO dao = new BuscaJPADAO();
+		//dao.beginTransaction();
+		//dao.save(busca);
+		//dao.commit();
+		//dao.close();
 		
 		File raiz = new File("/coleta");
 		File pasta = new File(raiz, dataString);
@@ -143,8 +149,8 @@ public class ServletColetaTweets extends HttpServlet {
 		Thread buscaThread = new Thread(new BuscaTweets(busca, twitter));
 		buscaThread.start();
 		
-		 RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");  
-	     dispatcher.forward(request, response); 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");  
+	    dispatcher.forward(request, response); 
 		
 	}
 
