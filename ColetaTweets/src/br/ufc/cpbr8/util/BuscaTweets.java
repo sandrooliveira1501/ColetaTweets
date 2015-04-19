@@ -43,10 +43,9 @@ public class BuscaTweets implements Runnable {
 			query.setQuery(busca.getValorBusca());
 			query.setLang("pt");
 
-			//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			//System.out.println(dateFormat.format(busca.getDataCriacao()));
-			//query.setUntil("2015-02-03");
-
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			query.setSince(dateFormat.format(busca.getDataCriacao()));
+			
 			QueryResult resultadoBusca = null;
 
 			try {

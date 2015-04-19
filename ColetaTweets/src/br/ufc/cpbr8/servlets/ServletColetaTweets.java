@@ -90,17 +90,9 @@ public class ServletColetaTweets extends HttpServlet {
 
 		Busca busca = new Busca(descricaoString, buscaString);
 		
-		String tempoBusca = request.getParameter("tempo_busca");
-		String dataBusca = request.getParameter("data_busca");
-
 		Date dataCriacao = new Date();
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		try {
-			dataCriacao = dateFormat.parse(dataBusca.trim() + " " + tempoBusca.trim());
-		} catch (ParseException e) {
-			dataCriacao = new Date();
-		}
 		
 		String dataString = dateFormat.format(dataCriacao);
 		
@@ -115,23 +107,23 @@ public class ServletColetaTweets extends HttpServlet {
 		//dao.commit();
 		//dao.close();
 		
-		File raiz = new File("/coleta");
+		File raiz = new File("/home/alexsandro/coleta/");
 		File pasta = new File(raiz, dataString);
 	
 		if(!pasta.exists())
 			pasta.mkdir();
 		
 		
-		//dataString é po nome da pasta onde ficarão os csvs dessa busca
+		//dataString é o nome da pasta onde ficarão os csvs dessa busca
 		
-		BufferedWriter bw = new BufferedWriter(new FileWriter("/coleta/"+dataString+"/info.txt", true));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("/home/alexsandro/coleta/"+dataString+"/info.txt", true));
 		bw.write("Descrição :"+busca.getDescricao());
 		bw.write("\n");
 		
 		bw.write("Busca por: "+busca.getValorBusca());
 		bw.write("\n");
 		
-		bw.write("Data de criação: "+dataString);
+		bw.write("Até: "+dataString);
 		bw.write("\n");
 		
 		bw.write("Quantidade de tweets por busca: "+String.valueOf(busca.getQuantidade()));

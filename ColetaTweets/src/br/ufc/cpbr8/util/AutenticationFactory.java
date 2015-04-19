@@ -6,10 +6,10 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class AutenticationFactory {
 
-	private static final String CONSUMERKEY = "e6bDAG2da94gdEdvhJzmOWhiM";
-	private static final String CONSUMERSECRET = "8Qa64vNJ7OJUAh1zYIGp8rZSloGkt4SZDSuBOrUwOjgOoi92zO";
-	private static final String ACCESSTOKEN = "275657169-NVxtKJIIQCeIU1g3DczpZ3gbUvahJ748r6Jnqto7";
-	private static final String ACCESSTOKENSECRET = "grfzEeIZ5vBp4cNohyRjawnn1Gd6eqNplhLVpVV5tVXGA";
+	private static final String CONSUMERKEY = "R3hXH79npWMm0l0EvG42lnzm5";
+	private static final String CONSUMERSECRET = "DVMGOYoq9OlHVYwYWB1LQrAXVYCHSm9swnBQ6a5kHDOaBOXHf1";
+	private static final String ACCESSTOKEN = "211586230-MjyNtjuEuDBmO9znz1Z4f8sHRCnz8JHMJYS4YeHj";
+	private static final String ACCESSTOKENSECRET = "rdC1y2d0iBijiki7U3aKelCkrmBC6zJS0yTaWahx1Juvr";
 
 	public static Twitter getTwitter(){
 		ConfigurationBuilder cb = new ConfigurationBuilder();

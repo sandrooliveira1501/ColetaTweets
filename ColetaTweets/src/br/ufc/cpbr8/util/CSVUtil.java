@@ -26,7 +26,7 @@ public class CSVUtil {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String dataString = format.format(data);
 		
-		String nomeArquivo = "/coleta/"+dataString+"/"+contBusca+".csv";
+		String nomeArquivo = "/home/alexsandro/coleta/"+dataString+"/"+contBusca+".csv";
 		Path pathArquivo = Paths.get(nomeArquivo);
 		try{
 			
@@ -54,8 +54,7 @@ public class CSVUtil {
 		String linha = toString(status);
 		try {
 
-			Path path = Paths.get("/coleta/"+dataString+"/"+cout+".csv");
-			//bw = new BufferedWriter(new FileWriter("C:\\Users\\Alex Oliveira\\Desktop\\"+cout+".csv", true));
+			Path path = Paths.get("/home/alexsandro/coleta/"+dataString+"/"+cout+".csv");
 			
 			bw = Files.newBufferedWriter(path, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 			

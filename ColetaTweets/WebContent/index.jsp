@@ -7,25 +7,28 @@
 <meta charset="utf-8">
 <title>AnaliseCPBR8</title>
 <link href="style.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 
-	<div class="navbar">
-		<h2 class="textnavbar">Análise Tweets CPBR8</h2>
-	</div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Coleta Tweets</a>
+			</div>
+		</div>
+	</nav>
 
-	<div style="margin-top: 70px;">
-		<div class="component">
-			<a href="ServletColetaTweets?cmd=listar"> <input type="button"
-				value="Listar todas as pesquisas" class="btn" />
-			</a>
-		</div>
-		<div class="component">
-			<a href="nova-busca.jsp"> <input type="button"
-				value="Iniciar nova busca" class="btn" />
-			</a>
-		</div>
-	</div>
+	<ol class="breadcrumb">
+		<li><a href="nova-busca.jsp">Iniciar Nova Busca</a></li>
+	</ol>
+
 
 </body>
 </html>
