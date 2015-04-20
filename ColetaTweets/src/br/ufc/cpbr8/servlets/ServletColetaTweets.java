@@ -107,7 +107,7 @@ public class ServletColetaTweets extends HttpServlet {
 		//dao.commit();
 		//dao.close();
 		
-		File raiz = new File("/home/alexsandro/coleta/");
+		File raiz = new File("/home/alex.alexandrino/coleta/");
 		File pasta = new File(raiz, dataString);
 	
 		if(!pasta.exists())
@@ -116,7 +116,7 @@ public class ServletColetaTweets extends HttpServlet {
 		
 		//dataString é o nome da pasta onde ficarão os csvs dessa busca
 		
-		BufferedWriter bw = new BufferedWriter(new FileWriter("/home/alexsandro/coleta/"+dataString+"/info.txt", true));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("/home/alex.alexandrino/coleta/"+dataString+"/info.txt", true));
 		bw.write("Descrição :"+busca.getDescricao());
 		bw.write("\n");
 		

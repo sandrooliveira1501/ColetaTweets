@@ -26,7 +26,7 @@ public class CSVUtil {
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String dataString = format.format(data);
 		
-		String nomeArquivo = "/home/alexsandro/coleta/"+dataString+"/"+contBusca+".csv";
+		String nomeArquivo = "/home/alex.alexandrino/coleta/"+dataString+"/"+contBusca+".csv";
 		Path pathArquivo = Paths.get(nomeArquivo);
 		try{
 			
@@ -54,7 +54,7 @@ public class CSVUtil {
 		String linha = toString(status);
 		try {
 
-			Path path = Paths.get("/home/alexsandro/coleta/"+dataString+"/"+cout+".csv");
+			Path path = Paths.get("/home/alex.alexandrino/coleta/"+dataString+"/"+cout+".csv");
 			
 			bw = Files.newBufferedWriter(path, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 			
@@ -79,7 +79,19 @@ public class CSVUtil {
 		String usuarioId = "\""+String.valueOf(tweet.getUser().getId())+"\"";
 		String nome = "\""+tweet.getUser().getName()+"\"";
 		String userName = "\""+tweet.getUser().getScreenName()+"\"";
-		String localizacao = "\""+tweet.getUser().getLocation()+"\""; 
+		String localizacao = "\""+tweet.getUser().getLocation()+"\"";
+		String latitude, longitude;
+		try {
+			latitude = "\""+tweet.getGeoLocation().getLatitude()+"\"";
+		} catch (Exception e) {
+			latitude = "\""+""+"\""; 
+		}
+		try {
+			longitude = "\""+tweet.getGeoLocation().getLongitude()+"\"";
+		} catch (Exception e) {
+			longitude = "\""+""+"\"";
+		}
+		
 		String mencionados = "";
 		String hashTags = "";
 		
@@ -112,6 +124,8 @@ public class CSVUtil {
 		string.append(nome+";");
 		string.append(userName+";");
 		string.append(localizacao+";");
+		string.append(latitude+";");
+		string.append(longitude+";");
 		string.append(mencionados+";");
 		string.append(hashTags+";");
 		return string.toString();
